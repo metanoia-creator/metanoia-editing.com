@@ -69,6 +69,10 @@ ul, li {
     padding: 0 50px;
 }
 
+.hide-br {
+    display: block;
+}
+
 .content-holder, .footer__content, .header__content {
     width: 100%;
     max-width: 1860px;
@@ -89,10 +93,6 @@ a.text-link {
     -webkit-transition: color .3s ease 0s;
     -o-transition: color .3s ease 0s;
     transition: color .3s ease 0s;
-}
-
-.nav__link:hover {
-    color: #E24326;
 }
 
 .ffam-vivaldi {
@@ -206,10 +206,6 @@ a.text-link {
     margin-right: 28px;
 }
 
-.footer__nav-link:hover {
-    color: #E24326;
-}
-
 .footer__contacts {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -277,17 +273,333 @@ a.text-link {
     justify-content: space-between;
 }
 
+.burgermenu {
+    border: none;
+    background: none;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+    outline: none;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 3;
+    display: none;
+  }
+  .burgermenu:hover {
+    opacity: 1;
+  }
+  .burgermenu span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background: #060606;
+    transform: translateY(6px);
+    transition: transform 0.5s ease, background-color 0.5s ease 0.3s;
+  }
+  .burgermenu span:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #060606;
+    transform: translateY(-6px);
+    animation-name: topLineBurger;
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    animation-fill-mode: forwards;
+  }
+  .burgermenu span:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #060606;
+    transform: translateY(6px);
+    animation-name: bottomLineBurger;
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    animation-fill-mode: forwards;
+  }
+  .burgermenu.opened span {
+    background: transparent;
+    transition: border-color 0.3s ease;
+  }
+  .burgermenu.opened span:before {
+    animation-name: topLineCross;
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    animation-fill-mode: forwards;
+  }
+  .burgermenu.opened span:after {
+    animation-name: bottomLineCross;
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    animation-fill-mode: forwards;
+  }
+  @-moz-keyframes topLineCross {
+    0% {
+      transform: translateY(-6px);
+    }
+    50% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px) rotate(45deg);
+    }
+  }
+  @-webkit-keyframes topLineCross {
+    0% {
+      transform: translateY(-6px);
+    }
+    50% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px) rotate(45deg);
+    }
+  }
+  @-o-keyframes topLineCross {
+    0% {
+      transform: translateY(-6px);
+    }
+    50% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px) rotate(45deg);
+    }
+  }
+  @keyframes topLineCross {
+    0% {
+      transform: translateY(-6px);
+    }
+    50% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px) rotate(45deg);
+    }
+  }
+  @-moz-keyframes bottomLineCross {
+    0% {
+      transform: translateY(6px);
+    }
+    50% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px) rotate(-45deg);
+    }
+  }
+  @-webkit-keyframes bottomLineCross {
+    0% {
+      transform: translateY(6px);
+    }
+    50% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px) rotate(-45deg);
+    }
+  }
+  @-o-keyframes bottomLineCross {
+    0% {
+      transform: translateY(6px);
+    }
+    50% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px) rotate(-45deg);
+    }
+  }
+  @keyframes bottomLineCross {
+    0% {
+      transform: translateY(6px);
+    }
+    50% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px) rotate(-45deg);
+    }
+  }
+  @-moz-keyframes topLineBurger {
+    0% {
+      transform: translateY(0px) rotate(45deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: translateY(-6px) rotate(0deg);
+    }
+  }
+  @-webkit-keyframes topLineBurger {
+    0% {
+      transform: translateY(0px) rotate(45deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: translateY(-6px) rotate(0deg);
+    }
+  }
+  @-o-keyframes topLineBurger {
+    0% {
+      transform: translateY(0px) rotate(45deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: translateY(-6px) rotate(0deg);
+    }
+  }
+  @keyframes topLineBurger {
+    0% {
+      transform: translateY(0px) rotate(45deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: translateY(-6px) rotate(0deg);
+    }
+  }
+  @-moz-keyframes bottomLineBurger {
+    0% {
+      transform: translateY(0px) rotate(-45deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: translateY(6px) rotate(0deg);
+    }
+  }
+  @-webkit-keyframes bottomLineBurger {
+    0% {
+      transform: translateY(0px) rotate(-45deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: translateY(6px) rotate(0deg);
+    }
+  }
+  @-o-keyframes bottomLineBurger {
+    0% {
+      transform: translateY(0px) rotate(-45deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: translateY(6px) rotate(0deg);
+    }
+  }
+  @keyframes bottomLineBurger {
+    0% {
+      transform: translateY(0px) rotate(-45deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: translateY(6px) rotate(0deg);
+    }
+  }
+  
+  .burger-menu-b {
+    align-items: center;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    opacity: 0;
+    padding: 0 28px 28px;
+    position: fixed;
+    top: 0;
+    transform: translate(100%);
+    width: 100%;
+    z-index: 2;
+  }
+  .burger-menu-b,
+  .burger-menu-b.active {
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .burger-menu-b.active {
+    opacity: 1;
+    -webkit-transform: translate(0);
+    -ms-transform: translate(0);
+    transform: translate(0);
+  }
+  .burger-menu-b__wrap {
+    width: 100%;
+  }
+  .burger-menu-b.active .social-links {
+    margin-top: 50px;
+  }
+  .burger-menu-b.active .social-link__icon {
+    max-width: inherit;
+  }
+  .burger-menu-b__content {
+    max-width: 275px;
+  }
+  .burger-menu-b__content .btn-solid {
+    margin-top: 17px;
+  }
+  .burger-menu-b__items {
+    padding-bottom: 20px;
+    margin-top: 170px;
+  }
+  .burger-menu-b__item {
+    margin-bottom: 30px;
+  }
+  .burger-menu-b__item .btn-nav-link {
+    font-family: 'Baskervville', serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 38px;
+    color: #060606;
+  }
+
+  .burger-menu-b__item .btn-nav-link:focus {
+    background-color: transparent;
+  }
 /*Brand link*/
 .brand-holder {
     width: 100%;
     height: 17.95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 60px;
+}
+
+.brand-holder-brands{
+   margin-left: -80px;
 }
 
 .brand-holder .brand-link {
     position: relative;
-    width: 143px;
-    left: 93.12%;
-    right: 3.78%;
     top: 25px;
     z-index: 99;
 }
@@ -324,6 +636,7 @@ a.text-link {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    justify-content: center;
     width: 870px;
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -332,8 +645,12 @@ a.text-link {
 
 .entrance .text-block__text {
     font-family: Baskervville-Italic, serif;
-    font-size: 22px;
-    line-height: 32px;
+    font-size: 24px;
+    line-height: 38px;
+}
+
+.text-block__text--center{
+text-align: center;
 }
 
 .entrance-logo {
@@ -383,8 +700,8 @@ a.text-link {
 }
 
 .s-page {
-    padding-top: 40px;
-    min-height: calc(100vh - 166px - 100px);
+    margin-top: 40px;
+    min-height: calc(100vh - 156px);
 }
 
 .s-page__container {
@@ -419,10 +736,24 @@ a.text-link {
 .logo-link {
     margin-top: 35px;
     width: 80px;
+    height: 80px;
     position: relative;
     overflow: hidden;
 }
-
+.logo-link--brands {
+    top: 0;
+    left: 90px;
+    position: absolute;
+}
+.logo-link--mobile{
+    position: absolute;
+    left: 30px;
+    top: 0;
+    display: none;
+}
+.mobile-view{
+    display: none;
+}
 .logo-link:after {
     content: "";
     left: 0;
@@ -473,7 +804,7 @@ a.text-link {
     position: absolute;
     width: 536.89px;
     height: 285.86px;
-    left: 25%;
+    left: 30%;
     right: 30%;
     top: 27%;
 }
@@ -657,7 +988,8 @@ svg {
     }
 
     .entrance .text-block__text {
-        font-size: 20px;
+        font-size: 24px;
+        line-height: 38px;
     }
 
     .ffam-vivaldi {
@@ -668,10 +1000,6 @@ svg {
         font-size: 22px;
     }
 
-    /*Brabds Link*/
-    .brand-holder .brand-link {
-        left: 91%;
-    }
 }
 
 @media screen and (max-width: 1600px) {
@@ -696,8 +1024,8 @@ svg {
     }
 
     .entrance .text-block__text {
-        line-height: 28px;
-        font-size: 16px;
+        line-height: 38px;
+        font-size: 22px;
     }
 
     .footer__content {
@@ -707,11 +1035,6 @@ svg {
     .copyright {
         height: 12px;
     }
-
-    /*Brabds Link*/
-    .brand-holder .brand-link {
-        left: 89.7%;
-    }
 }
 
 @media screen and (max-width: 1560px) {
@@ -719,30 +1042,21 @@ svg {
         padding-right: 80px;
     }
 
-    .brand-holder .brand-link {
-        left: 88.7%;
-    }
-
-}
-
-@media screen and (max-width: 1454px) {
-
-    /*Brabds Link*/
-    .brand-holder .brand-link {
-        left: 91.12%;
-        right: 3.78%;
-    }
 }
 
 @media screen and (max-width: 1449px) {
-
-    /*Brabds Link*/
-    .entrance .brand-holder .brand-link {
-        right: 2%;
+    .entrance .text-block {
+        width: 587px;
+    }
+    .hide-br {
+        display: none;
     }
 }
 
 @media screen and (max-width: 1366px) {
+    .hide-br {
+        display: block;
+    }
     .footer__nav-link:last-child {
         margin-right: 0;
     }
@@ -764,21 +1078,7 @@ svg {
     }
 
     .entrance .text-block__text {
-        font-size: 15px;
-    }
-
-    /*Brabds Link*/
-    .content-holder .brand-link {
-        left: 87.6%;
-    }
-
-}
-
-@media screen and (max-width: 1366px) {
-
-    /*Brabds Link*/
-    .brand-holder .brand-link {
-        left: 87.7%;
+        font-size: 18px;
     }
 
 }
@@ -798,22 +1098,9 @@ svg {
         max-width: calc(100% - 605px);
     }
 
-    /*Brabds Link*/
-    .brand-holder .brand-link {
-        left: 86.1%;
-    }
-
     /*swiper*/
     .swiper {
         left: 25%;
-    }
-}
-
-@media screen and (max-width: 1159px) {
-
-    /*Brabds Link*/
-    .brand-holder .brand-link {
-        left: 85.3%;
     }
 }
 
@@ -836,7 +1123,9 @@ svg {
         max-width: 720px;
         padding: 0 24px;
     }
-
+    .burger-menu {
+        display: block;
+    }
     .entrance {
         min-height: auto;
         height: 100%;
@@ -844,7 +1133,15 @@ svg {
         animation-delay: 0.3s;
         padding: 0;
     }
-
+    .mobile-view{
+        display: block;
+    }
+    .swiper {
+        left: 14%;
+    }
+    .entrance-logo__img{
+        display: none;
+    }
     .entrance .content-holder {
         min-height: auto;
         height: 100%;
@@ -946,12 +1243,6 @@ svg {
         display: block;
     }
 
-    /*Brabds Link*/
-    .brand-holder .brand-link {
-        left: 82.4%;
-    }
-
-
     /*swiper*/
     .swiper {
         width: 482.89px;
@@ -983,7 +1274,7 @@ svg {
 
     /*swiper*/
     .swiper {
-        left: 18%;
+        left: 14%;
         width: 462.89px;
         height: 245.86px;
     }
@@ -1071,7 +1362,6 @@ svg {
     }
 
     .entrance-logo {
-        padding: 160px 0 20px 0;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -1086,6 +1376,8 @@ svg {
     .entrance-logo__img--mobile {
         display: block;
         max-width: 300px;
+        margin: 160px 0 20px 0;
+
     }
 
     .entrance-logo__img:after {
@@ -1234,18 +1526,14 @@ svg {
 
     /*swiper*/
     .swiper {
-        left: 7.8%;
-        width: 360.89px;
-        height: 225.86px;
+        top: 230px;
+        left: 11.8%;
+        width: 301.89px;
+        height: 165.86px;
     }
 
     .swiper img {
-        width: 299px;
-    }
-
-    /*Brabds Link*/
-    .brand-holder .brand-link {
-        left: 40%;
+        width: 275px;
     }
 
     .swiper-slide .coming-soon {
@@ -1261,18 +1549,13 @@ svg {
 
     .swiper {
         top: 230px;
-        left: 7%;
-        width: 301.89px;
+        left: 6.8%;
+        width: 266.89px;
         height: 165.86px;
     }
 
     .swiper img {
         width: 245px;
-    }
-
-    /*Brabds Link*/
-    .brand-holder .brand-link {
-        left: 33%;
     }
 
     .swiper-slide .coming-soon {

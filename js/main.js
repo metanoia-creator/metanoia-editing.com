@@ -1,7 +1,61 @@
-$(window).on("load resize orientationchange", function () {
-  let burgerBtn = document.getElementById("burgerBtn"),
-    burgerMenu = document.getElementById("burger-menu-b");
+let burgerBtn = document.getElementById("burgerBtn"),
+  burgerMenu = document.getElementById("burger-menu-b");
 
+let aboutPage = document.getElementById("aboutPage"),
+  brandsPage = document.getElementById("brandsPage"),
+  metanoiaPage = document.getElementById("metanoiaPage"),
+  missionPage = document.getElementById("missionPage"),
+  entranceLogo = document.querySelector(".entrance-logo"),
+  logoLinkBrands = document.querySelector(".logo-link--brands");
+
+function goToMission() {
+  aboutPage.style.display = "none";
+  brandsPage.style.display = "none";
+  metanoiaPage.style.display = "none";
+  missionPage.style.display = "block";
+  entranceLogo.style.display = "flex";
+  logoLinkBrands.style.display = "none";
+}
+
+function goToBrands() {
+  aboutPage.style.display = "none";
+  brandsPage.style.display = "block";
+  metanoiaPage.style.display = "none";
+  missionPage.style.display = "none";
+  entranceLogo.style.display = "none";
+  logoLinkBrands.style.display = "block";
+}
+
+function goToAbout() {
+  aboutPage.style.display = "none";
+  brandsPage.style.display = "none";
+  metanoiaPage.style.display = "block";
+  missionPage.style.display = "none";
+  entranceLogo.style.display = "flex";
+  logoLinkBrands.style.display = "none";
+}
+
+function goToSlide(nr) {
+  $(".slider-mob-container").slick("slickGoTo", nr);
+}
+
+function breakpointChecker(breakpoint) {
+  if (breakpoint.matches === false) {
+    aboutPage.style.display = "block";
+    brandsPage.style.display = "none";
+    metanoiaPage.style.display = "none";
+    missionPage.style.display = "none";
+    entranceLogo.style.display = "flex";
+  } else if (breakpoint.matches === true) {
+    aboutPage.style.display = "block";
+    brandsPage.style.display = "block";
+    metanoiaPage.style.display = "block";
+    missionPage.style.display = "block";
+    entranceLogo.style.display = "flex";
+  }
+}
+
+$(window).on("load orientationchange", function () {
   $(".slider-mob-container").on("init", function (event, slick) {
     $(".entrance").addClass("animated fadeIn");
   });
@@ -96,40 +150,6 @@ $(window).on("load resize orientationchange", function () {
     },
   });
 
-  let aboutPage = document.getElementById("aboutPage"),
-    brandsPage = document.getElementById("brandsPage"),
-    metanoiaPage = document.getElementById("metanoiaPage"),
-    missionPage = document.getElementById("missionPage"),
-    entranceLogo = document.querySelector(".entrance-logo"),
-    logoLinkBrands = document.querySelector(".logo-link--brands");
-
-  function goToMission() {
-    aboutPage.style.display = "none";
-    brandsPage.style.display = "none";
-    metanoiaPage.style.display = "none";
-    missionPage.style.display = "block";
-    entranceLogo.style.display = "flex";
-    logoLinkBrands.style.display = "none";
-  }
-
-  function goToBrands() {
-    aboutPage.style.display = "none";
-    brandsPage.style.display = "block";
-    metanoiaPage.style.display = "none";
-    missionPage.style.display = "none";
-    entranceLogo.style.display = "none";
-    logoLinkBrands.style.display = "block";
-  }
-
-  function goToAbout() {
-    aboutPage.style.display = "none";
-    brandsPage.style.display = "none";
-    metanoiaPage.style.display = "block";
-    missionPage.style.display = "none";
-    entranceLogo.style.display = "flex";
-    logoLinkBrands.style.display = "none";
-  }
-
   document.querySelectorAll(".brand-link").forEach((item) => {
     item.addEventListener("click", () => {
       if (item.id === "missionTab") goToMission();
@@ -157,10 +177,6 @@ $(window).on("load resize orientationchange", function () {
     });
   });
 
-  function goToSlide(nr) {
-    $(".slider-mob-container").slick("slickGoTo", nr);
-  }
-
   document.querySelectorAll(".btn-nav-link").forEach((item) => {
     item.addEventListener("click", () => {
       let id = item.getAttribute("id");
@@ -175,25 +191,15 @@ $(window).on("load resize orientationchange", function () {
 
   const breakpoint = window.matchMedia("(max-width: 992px)");
 
-  const breakpointChecker = function () {
-    if (breakpoint.matches === false) {
-      aboutPage.style.display = "block";
-      brandsPage.style.display = "none";
-      metanoiaPage.style.display = "none";
-      missionPage.style.display = "none";
-      entranceLogo.style.display = "flex";
-    } else if (breakpoint.matches === true) {
-      aboutPage.style.display = "block";
-      brandsPage.style.display = "block";
-      metanoiaPage.style.display = "block";
-      missionPage.style.display = "block";
-      entranceLogo.style.display = "flex";
-    }
-  };
-
   burgerBtn.addEventListener("click", () => {
     burgerBtn.classList.toggle("opened");
     burgerMenu.classList.toggle("active");
   });
-  breakpointChecker();
+  breakpointChecker(breakpoint);
+});
+
+$(window).on("load ", function () {
+  if (window.location.hash === "#mission") goToMission();
+  if (window.location.hash === "#brands") goToBrands();
+  if (window.location.hash === "#about") goToAbout();
 });

@@ -139,6 +139,22 @@ a.text-link {
     font-style: normal;
 }
 
+.nav__link:hover {
+    color: #E24326;
+}
+
+.footer__nav-link:hover {
+    color: #E24326;
+}
+
+.nav__link:hover svg g g{
+    fill: #E24326 !important; 
+}
+
+.no-wrap-text{
+    white-space: nowrap;
+}
+
 .header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -645,10 +661,13 @@ a.text-link {
 
 .entrance .text-block__text {
     font-family: Baskervville-Italic, serif;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 38px;
 }
 
+.aboutTab {
+    cursor: pointer;
+}
 .text-block__text--center{
 text-align: center;
 }
@@ -860,6 +879,10 @@ text-align: center;
     left: -70px
 }
 
+.swiper-button-next:after, .swiper-button-prev:after {
+    zoom: 0.7;
+}
+
 .swiper-button-disabled {
     color: white;
 }
@@ -988,7 +1011,7 @@ svg {
     }
 
     .entrance .text-block__text {
-        font-size: 24px;
+        font-size: 22px;
         line-height: 38px;
     }
 
@@ -1012,7 +1035,7 @@ svg {
     }
 
     .ffam-vivaldi {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .ffam-cambria {
@@ -1024,12 +1047,12 @@ svg {
     }
 
     .entrance .text-block__text {
-        line-height: 38px;
-        font-size: 22px;
+        line-height: 35px;
+        font-size: 19px;
     }
 
     .footer__content {
-        font-size: 13px;
+        font-size: 17px;
     }
 
     .copyright {
@@ -1123,6 +1146,9 @@ svg {
         max-width: 720px;
         padding: 0 24px;
     }
+    .footer__content {
+        font-size: 14px;
+    }
     .burger-menu {
         display: block;
     }
@@ -1181,6 +1207,7 @@ svg {
     .entrance .text-block__text {
         max-width: 560px;
         text-align: center;
+        line-height: 32px;
     }
 
     .entrance-logo {

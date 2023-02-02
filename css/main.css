@@ -80,10 +80,6 @@ li {
   padding: 0 50px;
 }
 
-.hide-br {
-  display: block;
-}
-
 .content-holder,
 .footer__content,
 .header__content {
@@ -273,7 +269,7 @@ a.text-link {
   margin-right: 12px;
 }
 .mission-text {
-  margin-right: -18px;
+  padding-right: 12px;
 }
 .mail-icon {
   width: 16px;
@@ -1056,7 +1052,7 @@ svg {
   }
 
   .entrance .text-block {
-    width: 770px;
+    width: 705px;
     padding-left: 20px;
   }
 
@@ -1119,15 +1115,9 @@ svg {
   .entrance .text-block {
     width: 587px;
   }
-  .hide-br {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 1366px) {
-  .hide-br {
-    display: block;
-  }
   .footer__nav-link:last-child {
     margin-right: 0;
   }
